@@ -1,5 +1,8 @@
 const path = require('path')
 
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
   // 等值于 output.publicPath
   publicPath: './',
@@ -24,14 +27,32 @@ module.exports = {
     port: 9090
   },
 
-  configureWebpack: {
-    resolve: {
-      symlinks: false,
-      alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
-    }
+  // configureWebpack: {
+  //   resolve: {
+  //     symlinks: false,
+  //     alias: {
+  //       '@': path.resolve(__dirname, 'src')
+  //     }
+  //   }
+  // },
+  chainWebpack: (config) => {
+    config.resolve.alias.set('@', resolve('src'))
+    // config.module
+    //   .rule('svg')
+    //   .uses.clear()
+    config.module
+      .rule('svg1')
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+      .include
+      .add(resolve('src/icons'))
+      .end()
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end() //使得svg能在img的src下属性可用
   },
-
   lintOnSave: false
 }
