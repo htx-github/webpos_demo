@@ -2,8 +2,17 @@ import axios from 'axios'
 import {
   Message
 } from 'element-ui'
+let baseURL = ''
+if (process.env.NODE_ENV == 'development') {
+  baseURL = 'https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican'
+}
+if (process.env.NODE_ENV == 'production') {
+  baseURL = process.env.VUE_BASEURL
+}
+console.log(process.env.NODE_ENV)
+console.log(process.env)
 const service = axios.create({
-  baseURL: 'https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican',
+  baseURL: baseURL,
   timeout: 5000
 })
 service.interceptors.request.use(config => {

@@ -2,23 +2,28 @@
   <div class="left-nav">
     <ul>
       <li>
-        <svg-icon icon-class="收银" class="icon"></svg-icon>
+        <svg-icon icon-class="收银"
+                  class="icon"></svg-icon>
         <div>收银</div>
       </li>
       <li>
-        <svg-icon icon-class="店铺" class="icon"></svg-icon>
+        <svg-icon icon-class="店铺"
+                  class="icon"></svg-icon>
         <div>店铺</div>
       </li>
       <li>
-        <svg-icon icon-class="商品" class="icon"></svg-icon>
+        <svg-icon icon-class="商品"
+                  class="icon"></svg-icon>
         <div>商品</div>
       </li>
       <li>
-        <svg-icon icon-class="会员" class="icon"></svg-icon>
+        <svg-icon icon-class="会员"
+                  class="icon"></svg-icon>
         <div>会员</div>
       </li>
       <li>
-        <svg-icon icon-class="统计" class="icon"></svg-icon>
+        <svg-icon icon-class="统计"
+                  class="icon"></svg-icon>
         <div>统计</div>
       </li>
     </ul>
@@ -26,8 +31,8 @@
 </template>
 <script>
 export default {
-  name: "leftNav"
-};
+  // name: 'leftNav'
+}
 </script>
 <style lang='less'>
 .left-nav {

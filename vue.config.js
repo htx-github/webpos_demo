@@ -1,6 +1,6 @@
 const path = require('path')
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
@@ -36,7 +36,7 @@ module.exports = {
   //   }
   // },
   chainWebpack: (config) => {
-    config.resolve.alias.set('@', resolve('src'))
+    config.resolve.alias.set('@ ', resolve('src'))
     // config.module
     //   .rule('svg')
     //   .uses.clear()
@@ -52,7 +52,7 @@ module.exports = {
       .include
       .add(resolve('src/icons'))
       .end()
-    config.module.rule('svg').exclude.add(resolve('src/icons')).end() //使得svg能在img的src下属性可用
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end() // 使得svg能在img的src下属性可用
   },
   lintOnSave: false
 }
