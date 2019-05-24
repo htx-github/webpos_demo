@@ -265,6 +265,22 @@ export default {
       type2Goods:[],
       type3Goods:[],
     };
+  },
+  methods:{
+    addOrderlist(item){
+      let isHave=false;
+      for(let i=0;i<this.tableData.length;i++){
+        if(this.tableData[i].goodsID==item.goodsID){
+          isHave=true;
+        }
+      }
+      if(isHave){
+        let arr = this.tableData.filter(o=>o.goodsId=item.goodsID);
+        arr[0].count++;
+      }else{
+        this.tableData.push(item)
+      }
+    }
   }
 };
 </script>
